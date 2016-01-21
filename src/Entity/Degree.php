@@ -13,64 +13,38 @@ namespace Training\Entity;
  *
  * @author hb
  */
-class Degree {
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    private $id;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="institut", type="string", length=255)
-     */
-    private $institut;
+class Degree extends AbstractExperience {
 
     /**
      * @var string
      *
      * @ORM\Column(name="diploma", type="string", length=255)
      */
-    private $diploma;
+    protected $diploma;
 
     /**
-     * @var \DateTime
-     * @Assert\DateTime()
-     * @ORM\Column(name="date", type="date")
-     */
-    private $date;
-
-    /**
-     * @var \DateTime
-     * @Assert\DateTime()
-     * @ORM\Column(name="debut", type="date")
-     */
-    private $debut;
-
-    /**
-     * @var \DateTime
-     * @Assert\DateTime()
-     * @ORM\Column(name="fin", type="date")
-     */
-    private $fin;
-
-    /**
-     * @var string
+     * @var boolean
      *
-     * @ORM\Column(name="description", type="text")
+     * @ORM\Column(name="obtain", type="boolean")
      */
-    private $description;
+    protected $obtain;
 
-    /**
-     * @var \DateTime
-     * @Assert\DateTime()
-     * @ORM\Column(name="date", type="date")
-     */
-    private $date;
+    public function getDiploma() {
+        return $this->diploma;
+    }
+
+    public function getObtain() {
+        return $this->obtain;
+    }
+
+    public function setDiploma($diploma) {
+        $this->diploma = $diploma;
+        return $this;
+    }
+
+    public function setObtain($obtain) {
+        $this->obtain = $obtain;
+        return $this;
+    }
 
 }

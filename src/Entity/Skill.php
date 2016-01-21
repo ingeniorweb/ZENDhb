@@ -22,20 +22,47 @@ class Skill {
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="nom", type="string", length=255)
      */
-    private $nom;
+    protected $nom;
 
     /**
      * @var int
      *
      * @ORM\Column(name="niveau", type="integer")
      */
-    private $niveau;
+    protected $niveau;
+
+    public function getId() {
+        return $this->id;
+    }
+
+    public function getNom() {
+        return $this->nom;
+    }
+
+    public function getNiveau() {
+        return $this->niveau;
+    }
+
+    public function setId($id) {
+        $this->id = $id;
+        return $this;
+    }
+
+    public function setNom($nom) {
+        $this->nom = $nom;
+        return $this;
+    }
+
+    public function setNiveau($niveau) {
+        $this->niveau = $niveau;
+        return $this;
+    }
 
 }

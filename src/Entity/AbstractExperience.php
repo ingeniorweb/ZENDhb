@@ -13,7 +13,7 @@ namespace Training\Entity;
  *
  * @author hb
  */
-class Experience {
+class AbstractExperience {
 
     /**
      * @var int
@@ -22,55 +22,137 @@ class Experience {
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="entreprise", type="string", length=255)
      */
-    private $entreprise;
+    protected $entreprise;
 
     /**
      * @var string
      *
      * @ORM\Column(name="poste", type="string", length=255)
      */
-    private $poste;
+    protected $poste;
 
     /**
      * @var \DateTime
      * @Assert\DateTime()
      * @ORM\Column(name="date", type="date")
      */
-    private $date;
+    protected $date;
 
     /**
      * @var \DateTime
      * @Assert\DateTime()
-     * @ORM\Column(name="debut", type="date")
+     * @ORM\Column(name="start", type="date")
      */
-    private $debut;
+    protected $start;
 
     /**
      * @var \DateTime
      * @Assert\DateTime()
-     * @ORM\Column(name="fin", type="date")
+     * @ORM\Column(name="end", type="date")
      */
-    private $fin;
+    protected $end;
 
     /**
      * @var string
      *
      * @ORM\Column(name="description", type="text")
      */
-    private $description;
+    protected $description;
 
     /**
      * @var string
      *
      * @ORM\Column(name="image", type="string", length=255, nullable=true)
      */
-    private $image;
+    protected $image;
+    protected $skills = [];
+
+    public function getSkills() {
+        return $this->skills;
+    }
+
+    public function setSkills(array $skills) {
+        $this->skills = $skills;
+        return $this;
+    }
+
+    public function getId() {
+        return $this->id;
+    }
+
+    public function getEntreprise() {
+        return $this->entreprise;
+    }
+
+    public function getPoste() {
+        return $this->poste;
+    }
+
+    public function getDate() {
+        return $this->date;
+    }
+
+    public function getStart() {
+        return $this->start;
+    }
+
+    public function getEnd() {
+        return $this->end;
+    }
+
+    public function getDescription() {
+        return $this->description;
+    }
+
+    public function getImage() {
+        return $this->image;
+    }
+
+    public function setId($id) {
+        $this->id = $id;
+        return $this;
+    }
+
+    public function setEntreprise($entreprise) {
+        $this->entreprise = $entreprise;
+        return $this;
+    }
+
+    public function setPoste($poste) {
+        $this->poste = $poste;
+        return $this;
+    }
+
+    public function setDate(\DateTime $date) {
+        $this->date = $date;
+        return $this;
+    }
+
+    public function setStart(\DateTime $start) {
+        $this->start = $start;
+        return $this;
+    }
+
+    public function setEnd(\DateTime $end) {
+        $this->end = $end;
+        return $this;
+    }
+
+    public function setDescription($description) {
+        $this->description = $description;
+        return $this;
+    }
+
+    public function setImage($image) {
+        $this->image = $image;
+        return $this;
+    }
 
 }
